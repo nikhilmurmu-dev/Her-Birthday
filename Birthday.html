@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dee🥰</title>
+<style>
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    text-align: center;
+    background: linear-gradient(120deg, #a8d8ff, #4da6ff);
+    padding: 40px 20px;
+    min-height: 100vh;
+    margin: 0;
+  }
+  h1 {
+    color: #0066cc;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Brush Script MT', cursive;
+    font-weight: normal;
+  }
+  .subtitle {
+    color: #0080ff;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  button {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4da6ff, #0066cc);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: bold;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  }
+  button:active {
+    transform: translateY(0);
+  }
+  .message-box {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+  }
+  .message-box h2 {
+    font-family: 'Brush Script MT', cursive;
+    font-weight: normal;
+  }
+  .message-box p {
+    line-height: 1.6;
+  }
+  .message-box.show {
+    display: block;
+    animation: fadeIn 0.5s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .balloon {
+    font-size: 50px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+  }
+  .balloon:nth-child(2) { animation-delay: 0.5s; }
+  .balloon:nth-child(3) { animation-delay: 1s; }
+  .balloon:nth-child(4) { animation-delay: 1.5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 1000;
+  }
+  .sprinkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    z-index: 998;
+  }
+  .glow {
+    animation: glowing 0.5s ease-in-out infinite alternate;
+  }
+  @keyframes glowing {
+    0% {
+      text-shadow: 0 0 10px #66ccff, 0 0 20px #66ccff, 0 0 30px #0066cc, 0 0 40px #0066cc;
+    }
+    100% {
+      text-shadow: 0 0 20px #66ccff, 0 0 30px #66ccff, 0 0 40px #0066cc, 0 0 50px #0066cc, 0 0 60px #0066cc;
+    }
+  }
+  .photo-gallery {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .photo-gallery h2 {
+    color: #0066cc;
+    margin-top: 0;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: normal;
+  }
+  .slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .slider {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  .slide {
+    min-width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    font-size: 18px;
+    color: #999;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 102, 204, 0.8);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+  }
+  .slider-btn:hover {
+    background: rgba(0, 102, 204, 1);
+  }
+  .slider-btn.prev {
+    left: 10px;
+  }
+  .slider-btn.next {
+    right: 10px;
+  }
+  .slider-dots {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .dot.active {
+    background: #0066cc;
+  }
+</style>
+</head>
+<body>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  
+  <h1 id="mainTitle">Heppy Birthday Deee🥰</h1>
+  <p class="subtitle">Hope your special day is amazing!</p>
+
+  <div class="photo-gallery">
+    <h2>📸 Memory Lane</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" onclick="moveSlide(-1)">‹</button>
+      <button class="slider-btn next" onclick="moveSlide(1)">›</button>
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="https://i.postimg.cc/SsV2zSwC/IMG-20250808-WA0036.jpg" alt="Memory 1">
+        </div>
+        <div class="slide">
+          <img src="https://i.postimg.cc/gJwjrVq4/IMG-20250827-WA0012.jpg" alt="Memory 2">
+        </div>
+        <div class="slide">
+          <img src="https://i.postimg.cc/gkpcPF57/IMG-20241231-WA0005.jpg" alt="Memory 3">
+        </div>
+        <div class="slide">
+          <img src="https://i.postimg.cc/q76H3jSx/IMG-20250609-WA0002.jpg" alt="Memory 4">
+        </div>
+      </div>
+    </div>
+    <div class="slider-dots" id="dots"></div>
+  </div>
+
+  <button onclick="showMessage('msg1')">🎉 Click for a Birthday Wish</button>
+  <button onclick="showMessage('msg2')">💖 What I feel for you</button>
+  <button onclick="showMessage('msg3')">🎂 Make a Wish!</button>
+  <button onclick="launchConfetti()">🎊 Celebrate!</button>
+
+  <div id="msg1" class="message-box">
+    <h2>🎉 Birthday Wishes 🎉</h2>
+    <p>Heppy Birthday, Deee!🫶. Every time I see you smile, it makes my day better🥰. Hope your day is filled with laughter, love, and all the little joys that make you smile😊. You deserve the best today and always!🥰</p>
+  </div>
+
+  <div id="msg2" class="message-box">
+    <h2>💖 I feel this for you 💖</h2>
+    <p>You are cute, you are amazing,
+You are awesome, you are gorgeous, you are the 8th wonder of the world.
+Your smile could outshine the sunrise,
+Moon is nothing compared to you,
+Its glow fades when you smile.
+Stars envy the sparkle in your eyes,
+Even the night feels brighter when you’re around...
+
+Every moment with you feels like a dream I never want to end. </p>
+  </div>
+
+  <div id="msg3" class="message-box">
+    <h2>🎂 Make a Wish! 🎂</h2>
+    <p>Close your eyes, make a wish, and blow out the candles! 🕯️✨ May all your dreams come true this year!</p>
+    <div style="font-size: 60px; margin: 20px 0;">🎂🕯️</div>
+  </div>
+
+  <script>
+    // Sprinkles and title glow on page load
+    window.addEventListener('load', () => {
+      const title = document.getElementById('mainTitle');
+      title.classList.add('glow');
+      
+      launchSprinkles();
+
+      setTimeout(() => {
+        title.classList.remove('glow');
+      }, 2000);
+    });
+
+    function launchSprinkles() {
+      const colors = ['#ff3366', '#ff6699', '#ffcc00', '#66ccff', '#99ff99', '#ff99cc', '#9966ff'];
+
+      for (let i = 0; i < 60; i++) {
+        setTimeout(() => {
+          const sprinkle = document.createElement('div');
+          sprinkle.className = 'sprinkle';
+          sprinkle.style.left = Math.random() * window.innerWidth + 'px';
+          sprinkle.style.top = '-10px';
+          sprinkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          document.body.appendChild(sprinkle);
+
+          let posY = -10;
+          const speed = 4 + Math.random() * 3;
+
+          const fall = setInterval(() => {
+            if (posY >= window.innerHeight) {
+              clearInterval(fall);
+              sprinkle.remove();
+            } else {
+              posY += speed;
+              sprinkle.style.top = posY + 'px';
+            }
+          }, 20);
+        }, i * 30);
+      }
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let autoSlideInterval;
+
+    function initDots() {
+      const dotsContainer = document.getElementById('dots');
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateSlider() {
+      const slider = document.getElementById('slider');
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function moveSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function autoSlide() {
+      currentSlide++;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      updateSlider();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(autoSlide, 2000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    initDots();
+    startAutoSlide();
+
+    function showMessage(id) {
+      const boxes = document.querySelectorAll('.message-box');
+      boxes.forEach(box => box.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
+    }
+
+    function launchConfetti() {
+      const colors = ['#ff3366', '#ff6699', '#ffcc00', '#66ccff', '#99ff99'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          document.body.appendChild(confetti);
+
+          let pos = -10;
+          const fall = setInterval(() => {
+            if (pos >= window.innerHeight) {
+              clearInterval(fall);
+              confetti.remove();
+            } else {
+              pos += 5;
+              confetti.style.top = pos + 'px';
+            }
+          }, 20);
+        }, i * 30);
+      }
+    }
+  </script>
+</body>
+</html>
